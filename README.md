@@ -1,24 +1,32 @@
-# Vagrant::Syllabus::Provisioner
+# vagrant-syllabus-provisioner
 
-TODO: Write a gem description
+This plugin installs a provisioner that allows [Syllabus](https://github.com/serverspec/syllabus) to provision machines.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'vagrant-syllabus-provisioner'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install vagrant-syllabus-provisioner
+```
+$ vagrant plugin install vagrant-syllabus-provisioner
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "your_box"
+
+  config.vm.provision :syllabus do |syllabus|
+    # What files does syllabus use for provisioning?
+    # (default: ["syllabus.rb"])
+    syllabus.files = ["syllabus/default.rb"]
+  end
+end
+```
+
+## TODO
+
+* Add specs
 
 ## Contributing
 
@@ -27,3 +35,25 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Development
+
+Create `Vagrantfile`:
+
+```
+$ bundle exec vagrant init
+```
+
+Require this plugin in `Vagrantfile`:
+
+```ruby
+Vagrant.require_plugin "vagrant-syllabus-provisioner"
+```
+
+Use vagrant:
+
+```
+$ bundle exec vagrant up
+$ bundle exec vagrant provision
+```
+
