@@ -9,10 +9,6 @@ module VagrantSyllabusProvisioner
       end
     end
 
-    def finalize!
-      p config
-    end
-
     def provision
       with_backend do |backend|
         files.each do |file|
