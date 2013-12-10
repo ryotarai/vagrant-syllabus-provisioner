@@ -11,6 +11,14 @@ module VagrantSyllabusProvisioner
     def finalize!
       @files = nil if @files == UNSET_VALUE
     end
+
+    def validate(machine)
+      if @files && !@files.is_a?(Array)
+        return {"syllabus" => ["files must be an array"]}
+      end
+
+      {}
+    end
   end
 end
 
