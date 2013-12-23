@@ -1,4 +1,4 @@
-# vagrant-syllabus-provisioner
+# vagrant-syllabus-provisioner [![Build Status](https://travis-ci.org/ryotarai/vagrant-syllabus-provisioner.png?branch=master)](https://travis-ci.org/ryotarai/vagrant-syllabus-provisioner)
 
 This plugin installs a provisioner that allows [Syllabus](https://github.com/serverspec/syllabus) to provision machines.
 
